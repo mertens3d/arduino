@@ -41,7 +41,7 @@ void drawHtml(EthernetClient client) {
   client.println(F("<div>"));
   client.println(F("irRawCodesAr"));
   client.println(F("<br />"));
-  for (int idx = 0; idx <= ifRawCodesArMaxIdx; ++idx) {
+  for (int idx = 0; idx <= irRawCodesArMaxIdx; ++idx) {
     client.print(String(irRawCodesAr[idx]));
     client.print(F("."));
   }

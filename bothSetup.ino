@@ -16,7 +16,7 @@ void setupIr()
 
 void resetWebVariables() {
   Serial.println(F("resetWebVariables "));
-  ifRawCodesArMaxIdx = 0;
+  irRawCodesArMaxIdx = 0;
   queryCharArCurrentMaxIdx = 0;
 
   for (int idx = 0; idx <= queryCharArrayMaxChar; idx ++) {

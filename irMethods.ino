@@ -19,12 +19,12 @@ void storeCode(decode_results *results) {
       if (i % 2) {
         // Mark
         irRawCodesAr[i - 1] = results->rawbuf[i] * USECPERTICK - MARK_EXCESS;
-        Serial.print(F("."));
+        Serial.print(F(".")); //M
       }
       else {
         // Space
         irRawCodesAr[i - 1] = results->rawbuf[i] * USECPERTICK + MARK_EXCESS;
-        Serial.print(F("."));
+        Serial.print(F(".")); //S
       }
       Serial.print(irRawCodesAr[i - 1], DEC);
     }
@@ -36,13 +36,13 @@ void storeCode(decode_results *results) {
   Serial.println(results->value, HEX);
   codeValue = results->value;
   codeLen = results->bits;
-Serial.println("codeLen " + codeLen);
+  Serial.println("codeLen " + codeLen);
 }
 bool checkForPeriodHit(char oneChar) {
   if (oneChar == '.') {
-    if (ifRawCodesArMaxIdx < 1000) {
+    if (irRawCodesArMaxIdx < 1000) {
       //Serial.println(F("period hit"));
-     
+
     }
     return true;
   }
@@ -57,14 +57,14 @@ bool checkForCharHit(char oneChar) {
     unsigned long inInt = 0;
     inInt = atoi(&oneChar); //-44
     //Serial.println("Converted to int " + itoa(&inInt));
-    unsigned long newValue = irRawCodesAr[ifRawCodesArMaxIdx];
+    unsigned long newValue = irRawCodesAr[irRawCodesArMaxIdx];
     //Serial.println("A previous newValue " + String(newValue));
     newValue = newValue * 10;
     //Serial.println("B newValue " + String(newValue));
     newValue = newValue + inInt;
     //Serial.println("C newValue " + String(newValue));
-    irRawCodesAr[ifRawCodesArMaxIdx] = newValue;
-    //Serial.println(String(irRawCodesAr[ifRawCodesArMaxIdx]) + " ");// + String(irRawCodesAr[ifRawCodesArMaxIdx]));
+    irRawCodesAr[irRawCodesArMaxIdx] = newValue;
+    //Serial.println(String(irRawCodesAr[irRawCodesArMaxIdx]) + " ");// + String(irRawCodesAr[irRawCodesArMaxIdx]));
     return true;
   }
   return false;
@@ -73,7 +73,7 @@ bool checkForCharHit(char oneChar) {
 void convertCurrentRequestToCharArray() {
   //Serial.print(F("(s) convertCurrentRequestToCharArray queryCharArCurrentMaxIdx: "));
   //Serial.println(queryCharArCurrentMaxIdx);
-  ifRawCodesArMaxIdx = 0;
+  irRawCodesArMaxIdx = 0;
 
   for (int idx = 0; idx < queryCharArCurrentMaxIdx; idx++)
   {
@@ -85,7 +85,7 @@ void convertCurrentRequestToCharArray() {
         break; //for loop
       }
     } else {
-      ifRawCodesArMaxIdx ++;
+      irRawCodesArMaxIdx ++;
     }
 
 
