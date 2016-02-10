@@ -4,14 +4,14 @@ char requesCharLen = 0;
 
 
 void readRequest(EthernetClient client){
-    Serial.println("(s) readRequest");
+    Serial.println(F("(s) readRequest"));
     char charMinus1 = ' ';
     char charMinus2 = ' ';
     boolean startReadHit = false;
     boolean endReadHit = false;
-    currentRequestMaxIdx = 0;
+    queryCharArCurrentMaxIdx = 0;
 
-    while (client.connected() == true && endReadHit == false && currentRequestMaxIdx < maxChar) {
+    while (client.connected() == true && endReadHit == false && queryCharArCurrentMaxIdx < queryCharArrayMaxChar) {
         char currentChar = readClient(client);
      
 
@@ -27,20 +27,21 @@ void readRequest(EthernetClient client){
             break;
         }
         if (currentChar == '\n' && startReadHit == true){
-            Serial.println("end of line hit");
+            Serial.println(F("end of line hit"));
             break;
         }
         if (startReadHit){
             //Serial.println("hit - " + String(currentChar));
-            requestCharAr[currentRequestMaxIdx] = currentChar;
+            queryCharArray[queryCharArCurrentMaxIdx] = currentChar;
+            queryCharArCurrentMaxIdx += 1;
         }
         else{
             //Serial.println("minus chars " + String(charMinus2) + String(charMinus1));
             charMinus2 = charMinus1;
             charMinus1 = currentChar;
         }
-        currentRequestMaxIdx++;
+        
         
     }
-    Serial.println("(e) readRequest");
+    Serial.println(F("(e) readRequest"));
 }

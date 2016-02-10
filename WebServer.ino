@@ -22,20 +22,21 @@
 
   */
 
-int currentRequestMaxIdx = 0;
-const int maxChar = 300;
-char requestCharAr[maxChar];
+int queryCharArCurrentMaxIdx = 0;
+const int queryCharArrayMaxChar = 400;
+char queryCharArray[queryCharArrayMaxChar];
 
-int BUTTON_PIN = 7;//12;
+
 int codeLen; // The length of the code
 int codeType = -1; // The type of code
-int lastButtonState;
+
 int RECV_PIN = 6;//11;
+int STATUS_PIN_B = 8;
 int STATUS_PIN = 13;
 int toggle = 0; // The RC5/6 toggle state
-unsigned int rawCodes[RAWBUF]; // The durations if raw
-unsigned long codeValue; // The code value if not raw
-
+unsigned int irRawCodesAr[RAWBUF]; // The durations if raw
+unsigned long int codeValue; // The code value if not raw
+int ifRawCodesArMaxIdx = 0;
 
 IRrecv irrecv(RECV_PIN);
 IRsend irsend;
@@ -53,6 +54,6 @@ void setup() {
     setupIr();
 }
 void loop() {
- //  loopIrB();
+   loopIrB();
    loopWeb();
 }
