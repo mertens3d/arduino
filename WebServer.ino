@@ -29,14 +29,15 @@ char queryCharArray[queryCharArrayMaxChar];
 
 int codeLen; // The length of the code
 int codeType = -1; // The type of code
+int queryNumGroups = 0;
 
 int RECV_PIN = 6;//11;
 int STATUS_PIN_B = 8;
 int STATUS_PIN = 13;
 int toggle = 0; // The RC5/6 toggle state
-unsigned int irRawCodesAr[RAWBUF]; // The durations if raw
+unsigned int rawCodes[RAWBUF]; // The durations if raw
 unsigned long int codeValue; // The code value if not raw
-int irRawCodesArMaxIdx = 0;
+int queryNumberGroups = 0;
 
 IRrecv irrecv(RECV_PIN);
 IRsend irsend;

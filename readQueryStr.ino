@@ -10,7 +10,10 @@ void readRequest(EthernetClient client){
     boolean startReadHit = false;
     boolean endReadHit = false;
     queryCharArCurrentMaxIdx = 0;
+ 
 
+    Serial.println(F("(s) This is what is being read in"));
+    
     while (client.connected() == true && endReadHit == false && queryCharArCurrentMaxIdx < queryCharArrayMaxChar) {
         char currentChar = readClient(client);
      
@@ -31,7 +34,7 @@ void readRequest(EthernetClient client){
             break;
         }
         if (startReadHit){
-            //Serial.println("hit - " + String(currentChar));
+            Serial.print(String(currentChar));
             queryCharArray[queryCharArCurrentMaxIdx] = currentChar;
             queryCharArCurrentMaxIdx += 1;
         }

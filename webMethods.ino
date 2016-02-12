@@ -31,20 +31,28 @@ void drawHtml(EthernetClient client) {
   client.println(F("<html>"));
   client.println(F("<body>"));
 
-  client.println(F("<div>"));
+  client.print(F("<div>Contents of queryCharArray. Length: "));
+  client.println (queryCharArCurrentMaxIdx);
+  client.println (F("<br/>---"));
   for (int idxJ = 0; idxJ <= queryCharArCurrentMaxIdx; ++idxJ) {
-    client.print(String(queryCharArray[idxJ]));
+  client.print(String(queryCharArray[idxJ]));
   }
+  client.println (F("---"));
+
+  
   client.println(F("</div>"));
 
 
   client.println(F("<div>"));
-  client.println(F("irRawCodesAr"));
-  client.println(F("<br />"));
-  for (int idx = 0; idx <= irRawCodesArMaxIdx; ++idx) {
-    client.print(String(irRawCodesAr[idx]));
+  client.println(F("rawCodes"));
+  client.println(F("<br />Contents of rawCodes Length: "));
+  client.println(queryNumberGroups);
+  client.println (F("<br/>---"));
+  for (int idx = 0; idx <= queryNumberGroups; ++idx) {
+  client.print(String(rawCodes[idx]));
     client.print(F("."));
   }
+  client.println (F("---"));
   client.println(F("</div>"));
   client.println(F("done<br />"));
   client.println(F("</body>"));

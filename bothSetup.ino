@@ -16,14 +16,14 @@ void setupIr()
 
 void resetWebVariables() {
   Serial.println(F("resetWebVariables "));
-  irRawCodesArMaxIdx = 0;
+  queryNumberGroups = 0;
   queryCharArCurrentMaxIdx = 0;
 
   for (int idx = 0; idx <= queryCharArrayMaxChar; idx ++) {
     queryCharArray[idx] = 0;
   }
   for (int idxJ = 0; idxJ <= RAWBUF; idxJ ++) {
-    irRawCodesAr[idxJ] = 0;
+    rawCodes[idxJ] = 0;
   }
 
 }
