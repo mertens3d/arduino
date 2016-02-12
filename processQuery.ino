@@ -1,7 +1,7 @@
 
 bool checkForPeriodHit(char oneChar) {
   if (oneChar == '.') {
-    if (queryNumberGroups < 1000) {
+    if (queryNumberGroupMaxIdx < 1000) {
       //Serial.println(F("period hit"));
 
     }
@@ -18,13 +18,13 @@ bool checkForCharHit(char oneChar) {
     unsigned long inInt = 0;
     inInt = atoi(&oneChar); //-44
     //Serial.println("Converted to int " + itoa(&inInt));
-    unsigned long newValue = rawCodes[queryNumberGroups];
+    unsigned long newValue = rawCodes[queryNumberGroupMaxIdx];
     //Serial.println("A previous newValue " + String(newValue));
     newValue = newValue * 10;
     //Serial.println("B newValue " + String(newValue));
     newValue = newValue + inInt;
     //Serial.println("C newValue " + String(newValue));
-    rawCodes[queryNumberGroups] = newValue;
+    rawCodes[queryNumberGroupMaxIdx] = newValue;
 
     return true;
   }
@@ -34,7 +34,7 @@ bool checkForCharHit(char oneChar) {
 void convertCurrentRequestToCharArray() {
   //Serial.print(F("(s) convertCurrentRequestToCharArray queryCharArCurrentMaxIdx: "));
   //Serial.println(queryCharArCurrentMaxIdx);
-  queryNumberGroups = 1;
+  queryNumberGroupMaxIdx = 0;
 
   for (int idx = 0; idx < queryCharArCurrentMaxIdx; idx++)
   {
@@ -46,12 +46,12 @@ void convertCurrentRequestToCharArray() {
         break; //for loop
       }
     } else {
-      Serial.println(String(rawCodes[queryNumberGroups]));
-      queryNumberGroups ++;
+      Serial.println(String(queryNumberGroupMaxIdx) + " " + String(rawCodes[queryNumberGroupMaxIdx]));
+      queryNumberGroupMaxIdx ++;
     }
   }
   //last one
-  Serial.println(queryNumberGroups + " " + String(rawCodes[queryNumberGroups]));
+  Serial.println(String(queryNumberGroupMaxIdx) + " " + String(rawCodes[queryNumberGroupMaxIdx]));
   //Serial.println("(e) convertCurrentRequestToCharArray");
 }
 

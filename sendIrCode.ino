@@ -2,9 +2,9 @@ void sendCodeModified(int repeat) {
   digitalWrite(STATUS_PIN, HIGH);
   digitalWrite(STATUS_PIN_B, HIGH);
 
-  codeLen = queryNumberGroups;
-  Serial.print(F("about to send code len: "));
-  Serial.println(queryNumberGroups);
+  codeLen = queryNumberGroupMaxIdx + 1;
+  Serial.print(F("about to send code queryNumberGroupMaxIdx: "));
+  Serial.println(queryNumberGroupMaxIdx);
   for (int idx = 0; idx < repeat; idx++) {
     Serial.println(F("Sending"));
     // Assume 38 KHz

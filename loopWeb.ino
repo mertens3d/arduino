@@ -10,7 +10,7 @@ void loopWeb() {
     client.stop();
 
     Serial.println(F("------------------------------- Original way"));
-    //sendCode(1);
+    sendCode(1);
 
     Serial.println(F("------------------------------- Modified way"));
     sendCodeModified(1);

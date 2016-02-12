@@ -37,7 +37,7 @@ int STATUS_PIN = 13;
 int toggle = 0; // The RC5/6 toggle state
 unsigned int rawCodes[RAWBUF]; // The durations if raw
 unsigned long int codeValue; // The code value if not raw
-int queryNumberGroups = 0;
+int queryNumberGroupMaxIdx = 0;
 
 IRrecv irrecv(RECV_PIN);
 IRsend irsend;

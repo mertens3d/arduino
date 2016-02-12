@@ -46,9 +46,9 @@ void drawHtml(EthernetClient client) {
   client.println(F("<div>"));
   client.println(F("rawCodes"));
   client.println(F("<br />Contents of rawCodes Length: "));
-  client.println(queryNumberGroups);
+  client.println(queryNumberGroupMaxIdx);
   client.println (F("<br/>---"));
-  for (int idx = 0; idx <= queryNumberGroups; ++idx) {
+  for (int idx = 0; idx <= queryNumberGroupMaxIdx; ++idx) {
   client.print(String(rawCodes[idx]));
     client.print(F("."));
   }
