@@ -79,6 +79,9 @@
     <None Include="sendIrCode.ino" />
     <None Include="storeCode_original.ino" />
     <None Include="webMethods.ino" />
+    <None Include="WebServer\IrCommands.ino">
+      <FileType>CppCode</FileType>
+    </None>
     <None Include="WebServer\WebServer.ino" />
   </ItemGroup>
   <ItemGroup>

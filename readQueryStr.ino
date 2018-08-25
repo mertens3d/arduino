@@ -1,4 +1,5 @@
 
+
 char requesCharLen = 0;
 
 
@@ -23,6 +24,31 @@ String readRequest(EthernetClient client){
 		String req = client.readStringUntil('\n');
 		Serial.println("yup --> " + req);
 		client.flush();
+
+		int reqKeyIndex = req.indexOf("/");
+		if (reqKeyIndex > 0){
+			IrCommands pageKey = req.substring.substring(reqKeyIndex);
+
+
+			switch (pageKey) {
+			case 0:    // your hand is on the sensor
+				Serial.println("dark");
+				break;
+			case 1:    // your hand is close to the sensor
+				Serial.println("dim");
+				break;
+			case 2:    // your hand is a few inches from the sensor
+				Serial.println("medium");
+				break;
+			case 3:    // your hand is nowhere near the sensor
+				Serial.println("bright");
+				break;
+			}
+
+
+		
+		}
+
 
 
 		if (req.indexOf("?") > 0) {

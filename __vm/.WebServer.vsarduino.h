@@ -77,6 +77,7 @@ typedef void *__builtin_va_list;
 #define pgm_read_ptr(address_short)   short()
 
 #include "WebServer.ino"
+#include "IrCommands.ino"
 #include "..\bothSetup.ino"
 #include "..\debug.ino"
 #include "..\irMethods.ino"
