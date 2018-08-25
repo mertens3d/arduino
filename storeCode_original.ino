@@ -1,6 +1,7 @@
 // Stores the code for later playback
 // Most of this code is just logging
 void storeCode(decode_results *results) {
+  Serial.println(F("s) storeCode"));
   codeType = results->decode_type;
   int count = results->rawlen;
   codeType = UNKNOWN;  //-------------------------------------------------- my modification
@@ -53,6 +54,8 @@ void storeCode(decode_results *results) {
     codeValue = results->value;
     codeLen = results->bits;
   }
+
+  Serial.println(F("e) storeCode"));
 }
 
 

@@ -32,7 +32,7 @@ bool checkForCharHit(char oneChar) {
 }
 
 void convertCurrentRequestToCharArray() {
-  //Serial.print(F("(s) convertCurrentRequestToCharArray queryCharArCurrentMaxIdx: "));
+  Serial.print(F("(s) convertCurrentRequestToCharArray queryCharArCurrentMaxIdx: "));
   //Serial.println(queryCharArCurrentMaxIdx);
   queryNumberGroupMaxIdx = 0;
 

@@ -18,12 +18,22 @@
     <ClInclude Include="__vm\.WebServer.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="__vm\.arduino.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="WebServer.ino" />
     <None Include="irMethods.ino" />
     <None Include="webMethods.ino" />
     <None Include="bothSetup.ino" />
     <None Include="readQueryStr.ino" />
+    <None Include="debug.ino" />
+    <None Include="loopIrB.ino" />
+    <None Include="loopWeb.ino" />
+    <None Include="processOneClient.ino" />
+    <None Include="processQuery.ino" />
+    <None Include="sendIrCode.ino" />
+    <None Include="storeCode_original.ino" />
+    <None Include="WebServer\WebServer.ino" />
   </ItemGroup>
 </Project>

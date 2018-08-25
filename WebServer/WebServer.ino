@@ -1,3 +1,5 @@
+#include <ir_Lego_PF_BitStreamEncoder.h>
+#include <boarddefs.h>
 #include <IRremote.h>
 #include <IRremoteInt.h>
 
@@ -27,9 +29,13 @@ const int queryCharArrayMaxChar = 400;
 char queryCharArray[queryCharArrayMaxChar];
 
 
+
+
 int codeLen; // The length of the code
 int codeType = -1; // The type of code
 int queryNumGroups = 0;
+
+bool NoClientMessageSent = false;
 
 int RECV_PIN = 6;//11;
 int STATUS_PIN_B = 8;
@@ -55,6 +61,6 @@ void setup() {
     setupIr();
 }
 void loop() {
-   loopIrB();
+   //loopIrB();
    loopWeb();
 }

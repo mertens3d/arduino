@@ -1,4 +1,5 @@
 
+
 char readClient(EthernetClient client) {
   char c = ' ';
   if (client.available()) {
@@ -20,8 +21,8 @@ void debugShowQueryData() {
 }
 
 
-void drawHtml(EthernetClient client) {
-  Serial.println("drawHtml " + String(codeLen));
+void drawHtml(EthernetClient client, String irQueryValue) {
+  Serial.println("s) drawHtml " + String(codeLen));
   client.println(F("HTTP/1.1 200 OK"));
   client.println(F("Content-Type: text/html"));
   client.println(F("Connection: close"));  // the connection will be closed after completion of the response
@@ -31,12 +32,14 @@ void drawHtml(EthernetClient client) {
   client.println(F("<html>"));
   client.println(F("<body>"));
 
-  client.print(F("<div>Contents of queryCharArray. Length: "));
-  client.println (queryCharArCurrentMaxIdx);
-  client.println (F("<br/>---"));
-  for (int idxJ = 0; idxJ <= queryCharArCurrentMaxIdx; ++idxJ) {
-  client.print(String(queryCharArray[idxJ]));
-  }
+  //client.print(F("<div>Contents of queryCharArray. Length: "));
+  client.print(("<div>IR Query Value: " + irQueryValue));
+  client.println(F("<br/>---"));
+  //client.println (queryCharArCurrentMaxIdx);
+  //client.println (F("<br/>---"));
+  //for (int idxJ = 0; idxJ <= queryCharArCurrentMaxIdx; ++idxJ) {
+//	client.print(String(queryCharArray[idxJ]));
+//  }
   client.println (F("---"));
 
   
@@ -59,5 +62,5 @@ void drawHtml(EthernetClient client) {
   client.println(F("</html>"));
 
 
-
+  Serial.println(F("e) drawHtml " ));
 }

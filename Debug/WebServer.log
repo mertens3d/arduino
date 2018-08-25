@@ -1,0 +1,14 @@
+﻿Build started 8/18/2018 12:35:16 AM.
+     1>Project "C:\Users\info\Documents\Git\mertens3d\arduino\WebServer.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\WebServer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "Debug\WebServer.tlog\unsuccessfulbuild".
+         Touching "Debug\WebServer.tlog\WebServer.lastbuildstate".
+     1>Done Building Project "C:\Users\info\Documents\Git\mertens3d\arduino\WebServer.vcxproj" (Build target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.22

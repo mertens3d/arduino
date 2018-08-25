@@ -3,7 +3,7 @@ void setupEthernet() {
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip);
   server.begin();
-  Serial.print("server is at ");
+  Serial.print(F("server is at "));
   Serial.println(Ethernet.localIP());
 }
 void setupIr()
@@ -15,7 +15,7 @@ void setupIr()
 }
 
 void resetWebVariables() {
-  Serial.println(F("resetWebVariables "));
+  Serial.println(F("s) resetWebVariables "));
   queryNumberGroupMaxIdx = 0;
   queryCharArCurrentMaxIdx = 0;
 
@@ -25,6 +25,6 @@ void resetWebVariables() {
   for (int idxJ = 0; idxJ <= RAWBUF; idxJ ++) {
     rawCodes[idxJ] = 0;
   }
-
+  Serial.println(F("e) resetWebVariables "));
 }
 

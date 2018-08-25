@@ -1,16 +1,33 @@
+void SendIRCode() {
+
+
+	Serial.println(F("------------------------------- Original way"));
+	sendCode(1);
+
+	Serial.println(F("------------------------------- Modified way"));
+	sendCodeModified(1);
+
+
+
+
+
+}
+
+
 void sendCodeModified(int repeat) {
-  digitalWrite(STATUS_PIN, HIGH);
+  Serial.println(F("s) sendCodeModified"));
+	digitalWrite(STATUS_PIN, HIGH);
   digitalWrite(STATUS_PIN_B, HIGH);
 
   codeLen = queryNumberGroupMaxIdx + 1;
   Serial.print(F("about to send code queryNumberGroupMaxIdx: "));
   Serial.println(queryNumberGroupMaxIdx);
   for (int idx = 0; idx < repeat; idx++) {
-    Serial.println(F("Sending"));
-    // Assume 38 KHz
-    irsend.sendRaw(rawCodes, codeLen, 38);
-    Serial.println("Sent raw");// + rawCodes);
-    delay(50); // Wait a bit between retransmissions
+	Serial.println(F("Sending"));
+	// Assume 38 KHz
+	irsend.sendRaw(rawCodes, codeLen, 38);
+	Serial.println("Sent raw");// + rawCodes);
+	delay(50); // Wait a bit between retransmissions
   }
 
 
@@ -19,6 +36,7 @@ void sendCodeModified(int repeat) {
   digitalWrite(STATUS_PIN_B, LOW);
 
   drawRawCodesToSerial();
+  Serial.println(F("e) sendCodeModified"));
 }
 
 //8850.4500.500.650.450.1800.450.650.450.1750.500.1750.450.1800.450.1850.350.700.450.1750.500.650.400.1800.450.700.400.700.400.750.400.650.450.1800.450.700.400.1800.400.1800.450.1800.450.1850.400.650.450.650.450.650.450.1800.450.650.450.650.450.700.400.700.450.1750.450.1800.450.1800.450
